@@ -32,4 +32,5 @@ Route::delete('/questions/{question}', 'QuestionController@destroy');
 Route::get('/users', 'UserController@index');
 
 //Answers routes
-Route::get('/answers', 'AnswerController@index');
+Route::get('/answers/{question}/create', 'AnswerController@create');
+Route::post('/answers/store', 'AnswerController@store');

@@ -14,22 +14,20 @@
                 <div class="card-body">
                 {{ $question->question }}
                 <br>
-                <a href="/answers/{{ $question->id }}/create">Answer this question.</a>
 
-                @if ($question->id == $userId)
+                <form action="/answers/store" method="POST">
 
-                <a href="/questions/{{ $question->id }}/edit">Edit question.</a>
+                    <input type="text" name="answer" autocomplete="off">
+                    <input type="hidden" name="questionId" value="{{ $question->id }}">
 
-                <form action="/questions/{{ $question->id }}" method="POST">
-                    @method('DELETE')
+                    @error('answer') <p style="color:red;">{{ $message }}</p> @enderror
+
                     @csrf
-                    <button>Delete</button>
+
+                    <button type="submit">Submit answer</button>
+
                 </form>
-
-                @else
-
-                @endif
-
+            
                 </div>
             </div>
         </div>
