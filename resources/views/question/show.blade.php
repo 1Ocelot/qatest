@@ -13,6 +13,21 @@
                 {{ $question->question }}
                 <br>
                 <a href="#">Answer this question.</a>
+
+                @if ($question->id == $userId)
+
+                <a href="/questions/{{ $question->id }}/edit">Edit question.</a>
+
+                <form action="/questions/{{ $question->id }}" method="POST">
+                    @method('DELETE')
+                    @csrf
+                    <button>Delete</button>
+                </form>
+
+                @else
+
+                @endif
+
                 </div>
             </div>
         </div>

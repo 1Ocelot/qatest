@@ -21,17 +21,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Questions routes
 Route::get('/questions', 'QuestionController@index');
-
 Route::get('/questions/create', 'QuestionController@create');
-
 Route::get('/questions/{question}', 'QuestionController@show');
-
 Route::post('/questions', 'QuestionController@store');
-
 Route::get('/questions/{question}/edit', 'QuestionController@edit');
-
 Route::patch('/questions/{question}', 'QuestionController@update');
-
 Route::delete('/questions/{question}', 'QuestionController@destroy');
 
 //Users routes

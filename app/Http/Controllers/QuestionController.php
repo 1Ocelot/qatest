@@ -15,7 +15,7 @@ class QuestionController extends Controller
 
     public function index()
     {
-        $questions = \App\Question::all();
+        $questions = Question::all();
         
         return view('question.index', compact('questions'));
     }
@@ -27,7 +27,6 @@ class QuestionController extends Controller
 
     public function store()
     {
-
         $data = request()->validate([
             'question' => 'required'
         ]);
@@ -37,13 +36,37 @@ class QuestionController extends Controller
         Question::create(['question' => $data['question'], 'user_id' => $user_id]);
 
         return redirect('/questions');
-
     }
 
-    public function show(\App\Question $question)
+    public function show(Question $question)
     {
-
-        return view('question.show', compact('question'));
-
+        $userId = session()->get('id');
+        return view('question.show', compact('question','userId'));
     }
+
+    public function edit(Question $question)
+    {
+        return view('question.edit', compact('question'));
+    }
+
+    public function update(Question $question)
+    {
+        $data = request()->validate([
+            'question' => 'required'
+        ]);
+
+        $user_id = session()->get('id');
+
+        $question->update(['question' => $data['question'], 'user_id' => $user_id]);
+
+        return redirect('/questions');
+    }
+    
+    public function destroy(Question $question)
+    {
+        $question->delete();
+
+        return redirect('/questions');
+    }
+    
 }
