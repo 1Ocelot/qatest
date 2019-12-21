@@ -41,8 +41,10 @@ class QuestionController extends Controller
     public function show(Question $question)
     {
         $userId = session()->get('id');
+        $questonId = $question->id;
         $user = \App\User::findOrFail($question->user_id);
-        return view('question.show', compact('question','userId','user'));
+        $answers = \App\Answer::where('question_id',$questonId)->get();
+        return view('question.show', compact('question','userId','user','answers'));
     }
 
     public function edit(Question $question)

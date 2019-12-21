@@ -12,7 +12,23 @@
                 </div>
 
                 <div class="card-body">
+                <p><strong>Question: </strong></p>
                 {{ $question->question }}
+                <br>
+                <br>
+                <p><strong>Answers: </strong></p>
+                <div class="answer">
+
+                    @forelse($answers as $answer)
+                            <div>
+                                {{ $answer->answer }}
+                            </div>
+                    @empty
+                            <div>
+                                There are no answers for this question.
+                            </div>
+                    @endforelse
+                </div>
                 <br>
                 <a href="/answers/{{ $question->id }}/create">Answer this question.</a>
 
