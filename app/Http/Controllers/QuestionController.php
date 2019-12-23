@@ -44,7 +44,15 @@ class QuestionController extends Controller
         $questonId = $question->id;
         $user = \App\User::findOrFail($question->user_id);
         $answers = \App\Answer::where('question_id',$questonId)->get();
-        return view('question.show', compact('question','userId','user','answers'));
+
+        if (!empty($answers[0]))
+        {
+            $answer = \App\Answer::where('question_id',$questonId)->first();
+            $answerUserId = $answer->user_id;
+            $answerUserInfo = \App\User::findOrFail($answerUserId);
+        }
+
+        return view('question.show', compact('question','userId','user','answers','answerUserInfo'));
     }
 
     public function edit(Question $question)

@@ -22,6 +22,10 @@
                     @forelse($answers as $answer)
                             <div>
                                 {{ $answer->answer }}
+                                <br>
+                                Answered by: {{ $answerUserInfo->username}}
+                                <br>
+                                On date: {{ $answer->created_at }}
                             </div>
                     @empty
                             <div>
