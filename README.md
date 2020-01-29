@@ -18,9 +18,4 @@ Laravel - Node.js - MySQL
 -If you click on any question you will go to a detail page where you can EDIT or DELETE the question ONLY if you are the one who asked that question.<br/>
 -Click on Users to see user list with details about every user.<br/>
 
-You should make atleast two accounts and ask questions to see the authorization in action i.e.
-to see that only user who asked the question can edit it or delete it.
-
-
-
 This isn't complete app there is still some work to be done.
