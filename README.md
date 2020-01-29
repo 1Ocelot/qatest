@@ -21,6 +21,6 @@ Laravel - Node.js - MySQL
 You should make atleast two accounts and ask questions to see the authorization in action i.e.
 to see that only user who asked the question can edit it or delete it.
 
-This applications is only manually tested.
 
-Also this isn't complete app there is still some work to be done.
+
+This isn't complete app there is still some work to be done.
